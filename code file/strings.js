@@ -74,3 +74,82 @@ reverseWords(" the sky is blue"); // ➞ "blue is sky the"
 reverseWords("hello   world!  "); // ➞ "world! hello"
 
 reverseWords("a good example"); // ➞ "example good a"
+
+// - - - - - - - - - -
+
+// Hitting the Jackpot
+const testJackpot = (result) => {
+  const res = result.every((x) => x === result[0]);
+  console.log(res);
+}
+
+testJackpot(["@", "@", "@", "@"]); //➞ true
+
+testJackpot(["abc", "abc", "abc", "abc"]); //➞ true
+
+testJackpot(["SS", "SS", "SS", "SS"]); //➞ true
+
+testJackpot(["&&", "&", "&&&", "&&&&"]); //➞ false
+
+testJackpot(["SS", "SS", "SS", "Ss"]); //➞ false
+
+// - - - - - - - - - -
+
+// Finding Nemo
+const findNemo = (sentence) => {
+  if (sentence.includes("Nemo")) {
+    const madeArr = sentence.split(" ");
+    const indexOfNemo = madeArr.indexOf("Nemo");
+    console.log(`I found Nemo at ${indexOfNemo + 1}`);
+  } else {
+    console.log("I could not find Nemo :(");
+  }
+}
+
+findNemo("I am finding Nemo !"); //➞ "I found Nemo at 4!"
+
+findNemo("Nemo is me"); //➞ "I found Nemo at 1!"
+
+findNemo("I Nemo am"); //➞ "I found Nemo at 2!"
+
+// - - - - - - - - - -
+
+// Move Capital Letters to the Front
+// 1st way
+const capToFront = (s) => {
+  const regex = /[A-Z]/g;
+  if (s.match(regex)) {
+    const rest = [];
+    const result = s.split("").filter((a) => {
+      if (a.match(regex)) {
+        return a;
+      } else {
+        rest.push(a);
+      }
+    });
+    console.log(result.concat(rest).join(""));
+  } else {
+    console.log(s);
+  }
+}
+
+capToFront("hApPy"); // ➞ "APhpy"
+
+capToFront("moveMENT"); // ➞ "MENTmove"
+
+capToFront("shOrtCAKE"); // ➞ "OCAKEshrt"
+
+// 2nd BETTER WAY
+const capToFront2 = (s) => {
+  const capitalLetters = s.split("").filter((a) => a === a.toUpperCase());
+  const lowercaseLetters = s.split("").filter((a) => a === a.toLowerCase());
+  console.log(capitalLetters.concat(lowercaseLetters).join(""));
+}
+
+capToFront2("hApPy"); // ➞ "APhpy"
+
+capToFront2("moveMENT"); // ➞ "MENTmove"
+
+capToFront2("shOrtCAKE"); // ➞ "OCAKEshrt"
+
+
