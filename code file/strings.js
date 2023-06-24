@@ -152,4 +152,72 @@ capToFront2("moveMENT"); // ➞ "MENTmove"
 
 capToFront2("shOrtCAKE"); // ➞ "OCAKEshrt"
 
+// - - - - - - - - - -
 
+// Match the Last Item
+const matchLastItem = (arr) => {
+  const lastEl = arr.pop();
+  console.log(arr.join("") === lastEl);
+}
+
+matchLastItem(["rsq", "6hi", "g", "rsq6hig"]); //➞ true
+// The last item is the rest joined.
+
+matchLastItem([1, 1, 1, "11"]); //➞ false
+// The last item should be "111".
+
+matchLastItem([8, "thunder", true, "8thundertrue"]); //➞ true
+
+// - - - - - - - - -
+
+// The DECIMATOR
+const DECIMATOR = (str) => {
+  const theLength = str.length;
+  const numOfRemove = Math.ceil(theLength / 10);
+  charArr = str.split("");
+
+  charArr.splice(theLength - numOfRemove, numOfRemove);
+  console.log(charArr.join(""));
+}
+
+DECIMATOR("1234567890"); //➞ "123456789"
+// 10 characters, removed 1.
+
+DECIMATOR("1234567890AB"); //➞ "1234567890"
+// 12 characters, removed 2.
+
+DECIMATOR("123"); //➞ "12"
+// 3 characters, removed 1.
+
+DECIMATOR("123456789012345678901"); //➞ "123456789012345678"
+// 21 characters, removed 3.
+
+// - - - - - - - - - -
+
+// Remove Duplicates from an Array
+const removeDups = (arr) => {
+  const res = arr.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+  console.log(res);
+}
+
+removeDups([1, 0, 1, 0]); //➞ [1, 0]
+
+removeDups(["The", "big", "cat"]); //➞ ["The", "big", "cat"]
+
+removeDups(["John", "Taylor", "John"]); //➞ ["John", "Taylor"]
+
+// - - - - - - - - - -
+// ReverseAndNot
+const reverseAndNot = (i) => {
+  const reversed = i.toString().split("").reverse().join("");
+  const result = reversed.concat(i);
+  console.log(result);
+}
+
+reverseAndNot(123); // ➞ 321123
+
+reverseAndNot(152); // ➞ 251152
+
+reverseAndNot(123456789); // ➞ 987654321123456789
